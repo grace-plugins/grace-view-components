@@ -1,4 +1,4 @@
-# Grace View Components Plugin
+# Grace View Components
 
 A Grace plugin for creating reusable, testable and encapsulated view components.
 
@@ -114,6 +114,23 @@ ${new ButtonComponent(name: 'Primary Button', cssClasses: 'btn-primary').render(
 
 // Using tag in GSP
 <vc:render component="button" name="View Components" cssClasses="btn-success" icon="star" />
+
+// Custom namespace for components supports in 0.0.2
+<vc:button type="button" name="Icon Button" cssClasses="btn-primary" icon="box" />
+
+<vc:card title="My First Component" content="This is the first Card" />
+
+<g:each var="post" in="${Post.list()}">
+    <vc:card title="${post.title}" content="${post.body}" />
+    // or
+    <vc:card model="${post}" />
+</g:each>
+
+<vc:icon name="alarm" />
+<vc:icon name="apple" />
+<vc:icon name="bag" />
+<vc:icon name="bank" />
+<vc:icon name="box" />
 ```
 
 ### Using Inline template
@@ -144,6 +161,10 @@ cd grace-view-components
 ```
 
 ## What's New
+
+### 0.0.2
+
+* Support Custom namespace for components
 
 ### 0.0.1
 
