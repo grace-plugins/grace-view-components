@@ -1,2 +1,4 @@
 grails.compiler.traits.TraitInjector=grails.compiler.traits.ComponentTraitInjector,grails.compiler.traits.ControllerComponentTraitInjector
 grails.core.ArtefactHandler=org.graceframework.plugin.components.artefact.ComponentArtefactHandler
+org.grails.taglib.TagInvocationContextCustomizer=org.graceframework.plugin.components.taglib.ComponentTagInvocationContextCustomizer
+org.grails.taglib.NamespacedTagDispatcher=org.graceframework.plugin.components.taglib.ComponentNamespacedTagDispatcher
