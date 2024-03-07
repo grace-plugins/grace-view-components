@@ -4,7 +4,7 @@ A Grace plugin for creating reusable, testable and encapsulated view components.
 
 ## Grace Version
 
-- Grace **2022.0.0**
+- Grace **2022.2.0**
 
 ## Usage
 
@@ -18,8 +18,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.graceframework:grace-gradle-plugin:$grailsVersion"
-        classpath "org.graceframework.plugins:views-gradle:5.1.0"
+        classpath "org.graceframework:grace-gradle-plugin:$graceVersion"
+        classpath "org.graceframework.plugins:views-gradle:5.2.0"
     }
 }
 
@@ -31,7 +31,8 @@ repositories {
 }
 
 dependencies {
-    implementation "org.graceframework.plugins:view-components:0.0.1"
+    implementation "org.graceframework.plugins:views-markup:5.2.0"
+    implementation "org.graceframework.plugins:view-components:0.0.2"
 }
 
 ```
@@ -155,18 +156,19 @@ i(class: "bi bi-$name") {
 ### Build from source
 
 ```
-git clone https://github.com/graceframework/grace-view-components.git
+git clone https://github.com/grace-plugins/grace-view-components.git
 cd grace-view-components
 ./gradlew publishToMavenLocal
 ```
 
 ## What's New
 
-### 0.0.2
+### v0.0.2
 
+* Upgrade to Grace 2022.2.0
 * Support Custom namespace for components
 
-### 0.0.1
+### v0.0.1
 
 * Support Grace 2022.0+
 * Introduce View Components, using in Controller and GSP
