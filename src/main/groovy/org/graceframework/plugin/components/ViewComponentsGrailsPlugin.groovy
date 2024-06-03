@@ -6,6 +6,7 @@ import org.graceframework.plugin.components.taglib.ComponentTagLib
 
 class ViewComponentsGrailsPlugin extends Plugin {
 
+    def version = '0.1.0-SNAPSHOT'
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2022.0.0 > *"
     // resources that are excluded from plugin packaging
