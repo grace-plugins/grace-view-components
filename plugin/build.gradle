@@ -28,7 +28,6 @@ repositories {
 }
 
 dependencies {
-    compileOnly "javax.servlet:javax.servlet-api:$servletVersion"
     compileOnly "org.springframework.boot:spring-boot-autoconfigure"
     compileOnly "org.graceframework:grace-boot"
     compileOnly "org.graceframework:grace-core"
@@ -53,8 +52,8 @@ tasks.withType(Test) {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
     withJavadocJar()
     withSourcesJar()
 }
@@ -64,7 +63,7 @@ jar {
     manifest.mainAttributes(
         "Built-By": System.properties['user.name'],
         "Created-By": System.properties['java.vm.version'] + " (" + System.properties['java.vm.vendor'] + ")",
-        "Implementation-Title": "Grace Policy Plugin",
+        "Implementation-Title": "Grace View Components",
         "Implementation-Version": projectVersion,
         "Implementation-Vendor": 'Grace Plugins')
     enabled = true
@@ -96,9 +95,9 @@ publishing {
             from components.java
 
             pom {
-                name = "Grace Policy Plugin"
-                description = "Authorization plugin for Grails/Grace applications."
-                url = 'https://github.com/grace-plugins/grace-policy'
+                name = "Grace View Components"
+                description = "A Grace plugin for creating reusable, testable and encapsulated view components."
+                url = 'https://github.com/grace-plugins/grace-view-components'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -113,9 +112,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/grace-plugins/grace-policy.git'
-                    developerConnection = 'scm:git:ssh://github.com:grace-plugins/grace-policy.git'
-                    url = 'https://github.com/grace-plugins/grace-policy'
+                    connection = 'scm:git:git://github.com/grace-plugins/grace-view-components.git'
+                    developerConnection = 'scm:git:ssh://github.com:grace-plugins/grace-view-components.git'
+                    url = 'https://github.com/grace-plugins/grace-view-components'
                 }
             }
 
