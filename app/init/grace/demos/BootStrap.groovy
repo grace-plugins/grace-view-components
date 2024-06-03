@@ -1,4 +1,4 @@
-package org.graceframework.plugin.components
+package grace.demos
 
 class BootStrap {
 

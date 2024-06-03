@@ -1,1 +1,3 @@
-rootProject.name = 'view-components'
+rootProject.name = 'grace-view-components'
+
+include 'plugin'
