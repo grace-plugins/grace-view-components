@@ -13,17 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package grails.views;
+package grace.compiler.traits
 
-import grails.core.InjectableGrailsClass;
+import groovy.transform.Generated
+
+import grace.views.Component
 
 /**
- * Represents a controller class in Grails.
+ * Component render
  *
  * @author Michael Yan
- *
  * @since 0.0.1
  */
-public interface GrailsComponentClass extends InjectableGrailsClass {
+trait ComponentRenderer {
+
+    @Generated
+    void render(Component component) {
+        render(component, [:])
+    }
+
+    @Generated
+    void render(Component component, Map args) {
+        Map argMap = [text: component.render(), contentType: "text/html", encoding: "UTF-8"]
+        argMap.putAll(args)
+        render(argMap)
+    }
 
 }

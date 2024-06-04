@@ -13,30 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package grails.compiler.traits
+package grace.compiler.traits
 
-import groovy.transform.Generated
+import groovy.transform.CompileStatic
 
-import grails.views.Component
+import grace.views.Component
+
+import grails.compiler.traits.TraitInjector
 
 /**
- * Component render
+ * Component TraitInjector
  *
  * @author Michael Yan
  * @since 0.0.1
  */
-trait ComponentRenderer {
+@CompileStatic
+class ComponentTraitInjector implements TraitInjector {
 
-    @Generated
-    void render(Component component) {
-        render(component, [:])
+    @Override
+    Class getTrait() {
+        Component
     }
 
-    @Generated
-    void render(Component component, Map args) {
-        Map argMap = [text: component.render(), contentType: "text/html", encoding: "UTF-8"]
-        argMap.putAll(args)
-        render(argMap)
+    @Override
+    String[] getArtefactTypes() {
+        ['Component'] as String[]
     }
 
 }

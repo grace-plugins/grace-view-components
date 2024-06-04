@@ -13,29 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package grails.compiler.traits
+package grace.views;
 
-import groovy.transform.CompileStatic
-
-import grails.views.Component
+import grails.core.InjectableGrailsClass;
 
 /**
- * Component TraitInjector
+ * Represents a controller class in Grails.
  *
  * @author Michael Yan
+ *
  * @since 0.0.1
  */
-@CompileStatic
-class ComponentTraitInjector implements TraitInjector {
-
-    @Override
-    Class getTrait() {
-        Component
-    }
-
-    @Override
-    String[] getArtefactTypes() {
-        ['Component'] as String[]
-    }
+public interface GrailsComponentClass extends InjectableGrailsClass {
 
 }

@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package grails.compiler.traits
+package grace.compiler.traits
 
 import groovy.transform.CompileStatic
+
+import grails.compiler.traits.TraitInjector
 
 /**
  * Controller TraitInjector for Component

@@ -22,13 +22,13 @@ import org.springframework.beans.factory.InitializingBean
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextAware
 
+import grace.views.Component
 import grails.artefact.TagLibrary
 import grails.core.GrailsApplication
 import grails.core.GrailsClass
 import grails.core.support.GrailsApplicationAware
 import grails.gsp.TagLib
 import grails.util.GrailsNameUtils
-import grails.views.Component
 
 import org.graceframework.plugin.components.artefact.ComponentArtefactHandler
 

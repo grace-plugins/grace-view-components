@@ -15,8 +15,8 @@
  */
 package org.graceframework.plugin.components.artefact;
 
+import grace.views.GrailsComponentClass;
 import grails.core.ArtefactHandlerAdapter;
-import grails.views.GrailsComponentClass;
 import org.graceframework.plugin.components.component.DefaultGrailsComponentClass;
 
 /**

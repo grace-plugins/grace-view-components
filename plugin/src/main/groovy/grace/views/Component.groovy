@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package grails.views
+package grace.views
 
 import groovy.text.Template
 import groovy.transform.CompileDynamic
@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired
 
 import grails.plugin.markup.view.MarkupViewTemplateEngine
 import grails.util.GrailsNameUtils
+import grails.views.WritableScriptTemplate
 import grails.web.api.WebAttributes
 
 import org.grails.buffer.FastStringWriter

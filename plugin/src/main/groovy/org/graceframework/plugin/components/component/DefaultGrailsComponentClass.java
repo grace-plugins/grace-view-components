@@ -15,7 +15,7 @@
  */
 package org.graceframework.plugin.components.component;
 
-import grails.views.GrailsComponentClass;
+import grace.views.GrailsComponentClass;
 import org.grails.core.AbstractInjectableGrailsClass;
 
 /**
