@@ -32,7 +32,7 @@ dependencies {
     compileOnly "org.graceframework:grace-boot"
     compileOnly "org.graceframework:grace-core"
     compileOnly "org.graceframework:grace-web-common"
-    compileOnly "org.graceframework.plugins:views-markup:5.2.0"
+    compileOnly "org.graceframework.plugins:views-markup:5.2.4"
     implementation "commons-beanutils:commons-beanutils:1.9.4"
     profile "org.graceframework.profiles:web-plugin"
 }
