@@ -1,3 +1,8 @@
+[![Main branch build status](https://github.com/grace-plugins/grace-view-components/workflows/Grace%20CI/badge.svg?style=flat)](https://github.com/grace-plugins/grace-view-components/actions?query=workflow%3A%Grace+CI%22)
+[![Apache 2.0 license](https://img.shields.io/badge/License-APACHE%202.0-green.svg?logo=APACHE&style=flat)](https://opensource.org/licenses/Apache-2.0)
+[![Latest version on Maven Central](https://img.shields.io/maven-central/v/org.graceframework.plugins/view-components.svg?label=Maven%20Central&logo=apache-maven&style=flat)](https://search.maven.org/search?q=g:org.graceframework.plugins)
+[![Grace on X](https://img.shields.io/twitter/follow/graceframework?style=social)](https://twitter.com/graceframework)
+
 # Grace View Components
 
 A Grace plugin for creating reusable, testable and encapsulated view components.
@@ -19,7 +24,7 @@ buildscript {
     }
     dependencies {
         classpath "org.graceframework:grace-gradle-plugin:$graceVersion"
-        classpath "org.graceframework.plugins:views-gradle:5.2.0"
+        classpath "org.graceframework.plugins:views-gradle:5.2.4"
     }
 }
 
@@ -31,8 +36,8 @@ repositories {
 }
 
 dependencies {
-    implementation "org.graceframework.plugins:views-markup:5.2.0"
-    implementation "org.graceframework.plugins:view-components:0.0.2"
+    implementation "org.graceframework.plugins:views-markup:5.2.4"
+    implementation "org.graceframework.plugins:view-components:VERSION"
 }
 
 ```
@@ -117,6 +122,7 @@ ${new ButtonComponent(name: 'Primary Button', cssClasses: 'btn-primary').render(
 <vc:render component="button" name="View Components" cssClasses="btn-success" icon="star" />
 
 // Custom namespace for components supports in 0.0.2
+// I'm sorry, it's not supported by Grails, you can reply and make a request if you are interested, go to https://github.com/grails/grails-gsp/issues/324
 <vc:button type="button" name="Icon Button" cssClasses="btn-primary" icon="box" />
 
 <vc:card title="My First Component" content="This is the first Card" />
@@ -162,6 +168,12 @@ cd grace-view-components
 ```
 
 ## What's New
+
+### v0.1.0
+
+* Refactor app directory and packages of the plugin
+* Upgrade to Grace 2022.2.4
+* Upgrade to Groovy 3.0.17
 
 ### v0.0.2
 
