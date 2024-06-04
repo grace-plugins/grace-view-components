@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.graceframework.plugin.components.artefact;
+package org.graceframework.views.components.artefact;
 
 import grace.views.GrailsComponentClass;
 import grails.core.ArtefactHandlerAdapter;
-import org.graceframework.plugin.components.component.DefaultGrailsComponentClass;
+import org.graceframework.views.components.component.DefaultGrailsComponentClass;
 
 /**
  * Grails View Component.

@@ -1,8 +1,8 @@
-package org.graceframework.plugin.components
+package org.graceframework.views.plugin
 
 import grails.plugins.*
 
-import org.graceframework.plugin.components.taglib.ComponentTagLib
+import org.graceframework.views.components.taglib.ComponentTagLib
 
 class ViewComponentsGrailsPlugin extends Plugin {
 

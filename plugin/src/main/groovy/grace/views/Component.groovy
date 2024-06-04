@@ -31,8 +31,8 @@ import grails.web.api.WebAttributes
 import org.grails.buffer.FastStringWriter
 import org.grails.encoder.Encoder
 import org.grails.taglib.encoder.WithCodecHelper
-import org.graceframework.plugin.components.artefact.ComponentArtefactHandler
-import org.graceframework.plugin.util.StringUtils
+import org.graceframework.views.components.artefact.ComponentArtefactHandler
+import org.graceframework.views.util.StringUtils
 
 /**
  * Component trait

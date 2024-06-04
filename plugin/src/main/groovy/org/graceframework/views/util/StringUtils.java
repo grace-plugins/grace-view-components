@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.graceframework.plugin.util;
+package org.graceframework.views.util;
 
 import static grails.util.GrailsNameUtils.getNaturalName;
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.graceframework.plugin.components.taglib
+package org.graceframework.views.components.taglib
 
 import groovy.transform.CompileStatic
 import org.apache.commons.beanutils.BeanUtils as CommonsBeanUtils
@@ -30,7 +30,7 @@ import grails.core.support.GrailsApplicationAware
 import grails.gsp.TagLib
 import grails.util.GrailsNameUtils
 
-import org.graceframework.plugin.components.artefact.ComponentArtefactHandler
+import org.graceframework.views.components.artefact.ComponentArtefactHandler
 
 /**
  * Component TagLib
