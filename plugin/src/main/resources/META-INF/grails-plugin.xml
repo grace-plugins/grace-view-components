@@ -1,3 +1,0 @@
-<plugin name='viewComponents'>
-  <type>org.graceframework.views.plugin.ViewComponentsGrailsPlugin</type>
-</plugin>
