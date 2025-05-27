@@ -1,7 +1,7 @@
 [![Main branch build status](https://github.com/grace-plugins/grace-view-components/workflows/Grace%20CI/badge.svg?style=flat)](https://github.com/grace-plugins/grace-view-components/actions?query=workflow%3A%Grace+CI%22)
 [![Apache 2.0 license](https://img.shields.io/badge/License-APACHE%202.0-green.svg?logo=APACHE&style=flat)](https://opensource.org/licenses/Apache-2.0)
 [![Latest version on Maven Central](https://img.shields.io/maven-central/v/org.graceframework.plugins/view-components.svg?label=Maven%20Central&logo=apache-maven&style=flat)](https://search.maven.org/search?q=g:org.graceframework.plugins)
-[![Grace on X](https://img.shields.io/twitter/follow/graceframework?style=social)](https://twitter.com/graceframework)
+[![Grace on X](https://img.shields.io/twitter/follow/graceframework?style=social)](https://x.com/graceframework)
 
 # Grace View Components
 
@@ -9,7 +9,7 @@ A Grace plugin for creating reusable, testable and encapsulated view components.
 
 ## Grace Version
 
-- Grace **2022.2.0**
+- Grace **2022.2.9**
 
 ## Usage
 
@@ -168,6 +168,17 @@ cd grace-view-components
 ```
 
 ## What's New
+
+### v0.2.0
+
+* Upgrade to Grace 2022.2.9
+* Upgrade to Gradle 7.6.4
+* Upgrade to Grails Asset Pipeline 5.2.7
+* Upgrade to Grails Views 5.2.8
+* Upgrade to Groovy 3.0.23
+* Remove grails-plugin.xml in favor of the generated plugin meta file
+* Set archiveClassifier to 'plugin'
+* Add artifact grails-plugin.xml
 
 ### v0.1.0
 
