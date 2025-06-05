@@ -1,0 +1,147 @@
+== Getting Started
+
+Adding `view-components` plugin to the `build.gradle`,
+
+[source,groovy]
+----
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.graceframework:grace-gradle-plugin:$graceVersion"
+        classpath "org.graceframework.plugins:views-gradle:5.2.4"
+    }
+}
+
+apply plugin: "org.graceframework.grace-gsp"
+apply plugin: "org.graceframework.plugins.views-markup" // Need to build Grace Markup Views
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.graceframework.plugins:views-markup:5.2.4"
+    implementation "org.graceframework.plugins:view-components:VERSION"
+}
+----
+
+Let's start create some Components, `ButtonComponent` in `app/components`,
+
+[source,bash]
+----
+.
+├── app
+│   ├── assets
+│   ├── components
+│   │   └── demo
+│   │       ├── ButtonComponent.groovy
+│   │       └── CardComponent.groovy
+│   └── views
+│       └── components
+│           ├── button
+│           │   └── button_component.gml
+│           └── card
+│               └── card_component.gml
+
+----
+
+`ButtonComponent` is just a POGO, we define attribues which will be used in Markup views.
+
+[source,groovy]
+----
+class ButtonComponent {
+    String name = 'Button'
+    String type = 'button'
+    String size
+    String cssClasses
+    String color
+    String state
+    String icon
+
+    String getCssClasses() {
+        String theCssClasses = 'btn'
+        if (this.cssClasses) {
+            theCssClasses += ' ' + this.cssClasses
+        }
+        else {
+            theCssClasses += " btn-info"
+        }
+        if (size) {
+            theCssClasses += " btn-$size"
+        }
+        theCssClasses
+    }
+}
+----
+
+In the `app/views/components/button/button_component.gml`,
+
+[source,groovy]
+----
+model {
+    String name
+    String type
+    String size
+    String cssClasses
+    String color
+    String state
+    String icon
+}
+
+button([type: type, class: cssClasses] + (state == 'disabled' ? [disabled : ''] : [:]) + (color ? [style: 'color: ' + color] : [:])) {
+    if (icon) {
+        i(class: "bi bi-${icon}") {
+        }
+    }
+    yield name
+}
+----
+
+Using the `ButtonComponent`, `CardComponent` in your GSPs, it's very easy, `ViewComponents` support custom namespace and tags.
+
+[source,groovy]
+----
+
+// Using expression in GSP
+${new ButtonComponent(name: 'Primary Button', cssClasses: 'btn-primary').render()}
+
+// Using tag in GSP
+<vc:render component="button" name="View Components" cssClasses="btn-success" icon="star" />
+
+// Custom namespace for components supports in 0.0.2
+<vc:button type="button" name="Icon Button" cssClasses="btn-primary" icon="box" />
+
+<vc:card title="My First Component" content="This is the first Card" />
+
+<g:each var="post" in="${Post.list()}">
+    <vc:card title="${post.title}" content="${post.body}" />
+    // or
+    <vc:card model="${post}" />
+</g:each>
+
+<vc:icon name="alarm" />
+<vc:icon name="apple" />
+<vc:icon name="bag" />
+<vc:icon name="bank" />
+<vc:icon name="box" />
+----
+
+=== Using Inline template
+
+You also can write template in Component groovy source using `inline(String templateText)`, it's One File Component!
+
+[source,groovy]
+----
+class IconComponent {
+    String name
+
+    def render() {
+        inline """
+i(class: "bi bi-$name") {
+}
+"""
+    }
+}
+----

@@ -1,0 +1,1 @@
+Grace View Components is a plugin for creating reusable, testable and encapsulated view components.
