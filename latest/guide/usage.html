@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>2 Usage 0.3.0-SNAPSHOT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <div class="navHeader">
+        
+        <span id="logo">
+            <a href="https://graceframework.org" title="Grace Framework Website">
+                <img src="../img/grace.svg" alt="Grace Framework" />
+            </a>
+        </span>
+        
+        <div class="docHeader">
+            <h1 class="docTitle">Grace View Components</h1>
+            <h3 class="docSubTitle">A Grace plugin for creating reusable, testable and encapsulated view components</h3>
+        </div>
+    </div>
+    <div class="navLinks">
+        <ul>
+            <li>
+                <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                    <a href="../guide/index.html" class="button">Table of contents</a>
+
+                    <div id="nav-summary-childs" style="display:none;">
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/usage.html"><strong>2</strong><span>Usage</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="separator selected">
+                <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+            </li>
+            <li class="separator selected">
+                <a id="ref-button" href="../api/index.html">API Docs</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>2 Usage</h1>
+
+                    <p><strong>Version:</strong> 0.3.0-SNAPSHOT</p>
+                </div>
+
+                
+
+                
+
+<h1 id="usage"><a class="anchor" href="#usage"></a>2 Usage</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/grace-plugins/grace-view-components/edit/main/docs/guide/usage.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="sect1">
+<h2 id="_getting_started">Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Adding <code>view-components</code> plugin to the <code>build.gradle</code>,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework:grace-gradle-plugin:</span><span class="inline"><span class="inline-delimiter">$</span>graceVersion</span><span class="delimiter">&quot;</span></span>
+        classpath <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework.plugins:views-gradle:5.2.4</span><span class="delimiter">&quot;</span></span>
+    }
+}
+
+apply <span class="key">plugin</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework.grace-gsp</span><span class="delimiter">&quot;</span></span>
+apply <span class="key">plugin</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework.plugins.views-markup</span><span class="delimiter">&quot;</span></span> <span class="comment">// Need to build Grace Markup Views</span>
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework.plugins:views-markup:5.2.4</span><span class="delimiter">&quot;</span></span>
+    implementation <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework.plugins:view-components:VERSION</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s start create some Components, <code>ButtonComponent</code> in <code>app/components</code>,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">.
+├── app
+│   ├── assets
+│   ├── components
+│   │   └── demo
+│   │       ├── ButtonComponent.groovy
+│   │       └── CardComponent.groovy
+│   └── views
+│       └── components
+│           ├── button
+│           │   └── button_component.gml
+│           └── card
+│               └── card_component.gml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ButtonComponent</code> is just a POGO, we define attribues which will be used in Markup views.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">ButtonComponent</span> {
+    <span class="predefined-type">String</span> name = <span class="string"><span class="delimiter">'</span><span class="content">Button</span><span class="delimiter">'</span></span>
+    <span class="predefined-type">String</span> type = <span class="string"><span class="delimiter">'</span><span class="content">button</span><span class="delimiter">'</span></span>
+    <span class="predefined-type">String</span> size
+    <span class="predefined-type">String</span> cssClasses
+    <span class="predefined-type">String</span> color
+    <span class="predefined-type">String</span> state
+    <span class="predefined-type">String</span> icon
+
+    <span class="predefined-type">String</span> getCssClasses() {
+        <span class="predefined-type">String</span> theCssClasses = <span class="string"><span class="delimiter">'</span><span class="content">btn</span><span class="delimiter">'</span></span>
+        <span class="keyword">if</span> (<span class="local-variable">this</span>.cssClasses) {
+            theCssClasses += <span class="string"><span class="delimiter">'</span><span class="content"> </span><span class="delimiter">'</span></span> + <span class="local-variable">this</span>.cssClasses
+        }
+        <span class="keyword">else</span> {
+            theCssClasses += <span class="string"><span class="delimiter">&quot;</span><span class="content"> btn-info</span><span class="delimiter">&quot;</span></span>
+        }
+        <span class="keyword">if</span> (size) {
+            theCssClasses += <span class="string"><span class="delimiter">&quot;</span><span class="content"> btn-</span><span class="inline"><span class="inline-delimiter">$</span>size</span><span class="delimiter">&quot;</span></span>
+        }
+        theCssClasses
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>app/views/components/button/button_component.gml</code>,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">model {
+    <span class="predefined-type">String</span> name
+    <span class="predefined-type">String</span> type
+    <span class="predefined-type">String</span> size
+    <span class="predefined-type">String</span> cssClasses
+    <span class="predefined-type">String</span> color
+    <span class="predefined-type">String</span> state
+    <span class="predefined-type">String</span> icon
+}
+
+button([<span class="key">type</span>: type, <span class="type">class</span>: <span class="class">cssClasses</span>] + (state == <span class="string"><span class="delimiter">'</span><span class="content">disabled</span><span class="delimiter">'</span></span> ? [disabled : <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>] : [:]) + (color ? [<span class="key">style</span>: <span class="string"><span class="delimiter">'</span><span class="content">color: </span><span class="delimiter">'</span></span> + color] : [:])) {
+    <span class="keyword">if</span> (icon) {
+        i(<span class="type">class</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">bi bi-</span><span class="inline"><span class="inline-delimiter">${</span><span class="class">icon</span><span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>) {
+        }
+    }
+    yield name
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the <code>ButtonComponent</code>, <code>CardComponent</code> in your GSPs, it&#8217;s very easy, <code>ViewComponents</code> support custom namespace and tags.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// Using expression in GSP</span>
+<span class="error">$</span>{<span class="keyword">new</span> ButtonComponent(<span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">Primary Button</span><span class="delimiter">'</span></span>, <span class="key">cssClasses</span>: <span class="string"><span class="delimiter">'</span><span class="content">btn-primary</span><span class="delimiter">'</span></span>).render()}
+
+<span class="comment">// Using tag in GSP</span>
+&lt;<span class="key">vc</span>:render component=<span class="string"><span class="delimiter">&quot;</span><span class="content">button</span><span class="delimiter">&quot;</span></span> name=<span class="string"><span class="delimiter">&quot;</span><span class="content">View Components</span><span class="delimiter">&quot;</span></span> cssClasses=<span class="string"><span class="delimiter">&quot;</span><span class="content">btn-success</span><span class="delimiter">&quot;</span></span> icon=<span class="string"><span class="delimiter">&quot;</span><span class="content">star</span><span class="delimiter">&quot;</span></span> /&gt;
+
+<span class="comment">// Custom namespace for components supports in 0.0.2</span>
+&lt;<span class="key">vc</span>:button type=<span class="string"><span class="delimiter">&quot;</span><span class="content">button</span><span class="delimiter">&quot;</span></span> name=<span class="string"><span class="delimiter">&quot;</span><span class="content">Icon Button</span><span class="delimiter">&quot;</span></span> cssClasses=<span class="string"><span class="delimiter">&quot;</span><span class="content">btn-primary</span><span class="delimiter">&quot;</span></span> icon=<span class="string"><span class="delimiter">&quot;</span><span class="content">box</span><span class="delimiter">&quot;</span></span> /&gt;
+
+&lt;<span class="key">vc</span>:card title=<span class="string"><span class="delimiter">&quot;</span><span class="content">My First Component</span><span class="delimiter">&quot;</span></span> content=<span class="string"><span class="delimiter">&quot;</span><span class="content">This is the first Card</span><span class="delimiter">&quot;</span></span> /&gt;
+
+&lt;<span class="key">g</span>:each <span class="type">var</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">post</span><span class="delimiter">&quot;</span></span> <span class="keyword">in</span>=<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>Post.list()<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>&gt;
+    &lt;<span class="key">vc</span>:card title=<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>post.title<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> content=<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>post.body<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> /&gt;
+    <span class="comment">// or</span>
+    &lt;<span class="key">vc</span>:card model=<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>post<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> /&gt;
+&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">g:each&gt;</span></span><span class="error">
+</span>
+&lt;<span class="key">vc</span>:icon name=<span class="string"><span class="delimiter">&quot;</span><span class="content">alarm</span><span class="delimiter">&quot;</span></span> /&gt;
+&lt;<span class="key">vc</span>:icon name=<span class="string"><span class="delimiter">&quot;</span><span class="content">apple</span><span class="delimiter">&quot;</span></span> /&gt;
+&lt;<span class="key">vc</span>:icon name=<span class="string"><span class="delimiter">&quot;</span><span class="content">bag</span><span class="delimiter">&quot;</span></span> /&gt;
+&lt;<span class="key">vc</span>:icon name=<span class="string"><span class="delimiter">&quot;</span><span class="content">bank</span><span class="delimiter">&quot;</span></span> /&gt;
+&lt;<span class="key">vc</span>:icon name=<span class="string"><span class="delimiter">&quot;</span><span class="content">box</span><span class="delimiter">&quot;</span></span> /&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_inline_template">Using Inline template</h3>
+<div class="paragraph">
+<p>You also can write template in Component groovy source using <code>inline(String templateText)</code>, it&#8217;s One File Component!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">IconComponent</span> {
+    <span class="predefined-type">String</span> name
+
+    <span class="keyword">def</span> <span class="function">render</span>() {
+        inline <span class="string"><span class="delimiter">&quot;&quot;&quot;</span><span class="content">
+i(class: &quot;bi bi-</span><span class="inline"><span class="inline-delimiter">$</span>name</span><span class="content">&quot;) {
+}
+</span><span class="delimiter">&quot;&quot;&quot;</span></span>
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    Copyright &copy; 2023-2025 Michael Yan. The content is licensed under a Creative Commons Attribution 4.0 International (CC BY SA 4.0) license.
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>
